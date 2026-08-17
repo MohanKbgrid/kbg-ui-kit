@@ -1,11 +1,10 @@
 # @kbg/ui-kit
 
-The KBG **visual and behavioural language**. Artifact 3 of the
-[Platform Surfaces canon](../../docs/canon/README.md); read
-[surface 06 — Experience](../../docs/canon/surfaces/06-experience.md) first.
+The KBG **visual and behavioural language**. Artifact 3 of the Platform Surfaces canon; read its
+Experience surface spec first.
 
-> *"Even the UI/UX should be similar across the projects going forward. I don't want to reinvent
-> every time."* — Mohan, 2026-08-16
+> The brief this exists to satisfy: *the UI/UX should be similar across projects — nobody should
+> reinvent it every time.*
 
 ## What this is — and is not
 
@@ -23,6 +22,12 @@ wrong the same way:
 Everything else — tables, forms, charts — stays with the project, built to the contract in the
 spec. That is the canon's thesis applied to UI: ship the part where doing it *differently* is the
 bug.
+
+## Install
+
+```bash
+npm install "git+https://github.com/MohanKbgrid/kbg-ui-kit.git#main"
+```
 
 ## Use
 
@@ -64,5 +69,5 @@ exiting 0** — a false green. Use the `typecheck` script, which resolves the re
 
 ## Versioning
 
-`0.x` while Vijay, Aurafab and Solomon shake it out. Breaking changes go in the consuming project's
+`0.x` while its first consumers shake it out. Breaking changes go in the consuming project's
 divergence register, not behind a compatibility shim.
