@@ -23,11 +23,32 @@ Everything else — tables, forms, charts — stays with the project, built to t
 spec. That is the canon's thesis applied to UI: ship the part where doing it *differently* is the
 bug.
 
-## Install
+## How to use this: **VENDOR it, do not depend on it**
+
+Copy `src/` into your project (e.g. `src/vendor/kbg-ui-kit/`) and own it from there, recording the
+commit you copied from. There is deliberately no `npm install` instruction — this is a base, not a
+dependency, so one product can never break another.
 
 ```bash
-npm install "git+https://github.com/MohanKbgrid/kbg-ui-kit.git#main"
+git clone https://github.com/MohanKbgrid/kbg-ui-kit /tmp/kbg-ui
+cp -r /tmp/kbg-ui/src  <your-project>/src/vendor/kbg-ui-kit/
+git -C /tmp/kbg-ui rev-parse HEAD        # ← record this as the base commit
 ```
+
+### ⚠️ One exception, and it matters: the TOKENS
+
+`tokens.css` is the one file where divergence costs you the thing this package exists for —
+**one product family feel.** Components carry logic and rightly adapt per product; a token sheet
+carries none, so there is no "works for one, not the other" pressure on it. If four products each
+edit their own copy, they simply drift apart visually and the family look is gone.
+
+So: **vendor the components, keep the token sheet in sync.** At minimum, diff it against this repo
+when something looks off:
+
+```bash
+diff /tmp/kbg-ui/src/tokens/tokens.css  <your-project>/src/vendor/kbg-ui-kit/tokens/tokens.css
+```
+
 
 ## Use
 
